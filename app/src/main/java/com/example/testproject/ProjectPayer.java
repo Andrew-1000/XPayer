@@ -5,8 +5,6 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,8 +19,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProjectPayer extends AppCompatActivity {
 
     private Toolbar toolbar;
-
-    private Button mLogout;
     private FirebaseAuth mAuth;
 
     @Override
@@ -30,17 +26,9 @@ public class ProjectPayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_payer);
 
-        mLogout = findViewById(R.id.action_logout);
+
         mAuth = FirebaseAuth.getInstance();
 
-        mLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                startActivity(new Intent(ProjectPayer.this, SimpleStart.class));
-                finish();
-            }
-        });
 
         initToolbar();
     }
@@ -75,17 +63,23 @@ public class ProjectPayer extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
+        if (item.getItemId() == R.id.action_logout) {
+            logout();
         } else {
-            Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_LONG).show();
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
+    private void logout() {
+        mAuth.signOut();
+        Toast.makeText(getApplicationContext(), "Logged Out", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(ProjectPayer.this, SimpleStart.class));
+        finish();
+    }
+
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, SimpleStart.class));
-        finish();
+        logout();
     }
 }
