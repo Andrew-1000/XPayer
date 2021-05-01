@@ -26,4 +26,5 @@
     <string name="internet">INTERNET</string>
     <string name="app_version">1.0</string>
     <string name="version_unknown">Unknown Version</string>
+    <string name="logout">Logout</string>
 </resources>
