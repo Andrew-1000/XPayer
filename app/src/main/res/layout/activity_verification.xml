@@ -83,6 +83,7 @@
                     android:inputType="numberPassword"
                     android:maxLength="8"
                     android:maxLines="1"
+                    android:id="@+id/optEdit"
                     android:singleLine="true"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:textColor="@android:color/white"
