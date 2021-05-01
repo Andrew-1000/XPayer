@@ -60,9 +60,68 @@ public class SimpleStart extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)  {
-                findAction();
+
+                progressBar.setVisibility(View.VISIBLE);
+                fab.setAlpha(0f);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.GONE);
+                        fab.setAlpha(1f);
+
+                    }
+                }, 1000);
+
+                String country_code = countryCode.getText().toString().trim();
+                String phone_number = phoneNumber.getText().toString().trim();
+                String pNumber = "+" + country_code + "" + phone_number;
+                if (!country_code.isEmpty() || !phone_number.isEmpty()) {
+                    PhoneAuthOptions options = PhoneAuthOptions.newBuilder(auth)
+                            .setPhoneNumber(pNumber)
+                            .setTimeout(60L , TimeUnit.SECONDS)
+                            .setActivity(SimpleStart.this)
+                            .setCallbacks(mCallBacks)
+                            .build();
+                    PhoneAuthProvider.verifyPhoneNumber(options);
+                } else
+                {
+                    processOtp.setText("Please enter Country code and Phone Number");
+                    processOtp.setTextColor(Color.WHITE);
+                    processOtp.setVisibility(View.VISIBLE);
+                }
             }
         });
+
+        mCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                signIn(phoneAuthCredential);
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                processOtp.setText(e.getMessage());
+                processOtp.setTextColor(Color.RED);
+                processOtp.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                super.onCodeSent(s, forceResendingToken);
+                processOtp.setText("OTP has been Sent");
+                processOtp.setVisibility(View.VISIBLE);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Intent otpIntent = new Intent(SimpleStart.this, Verification.class);
+                            otpIntent.putExtra("auth", s);
+                            startActivity(otpIntent);
+                        }
+                    }, 3000);
+
+            }
+        };
     }
 
     @Override
@@ -95,63 +154,8 @@ public class SimpleStart extends AppCompatActivity {
         });
     }
 
-    private void findAction() {
-        String country_code = countryCode.getText().toString().trim();
-        String phone_number = phoneNumber.getText().toString().trim();
-        String pNumber = "+" + country_code + "" + phone_number;
-        if (!country_code.isEmpty() || !phone_number.isEmpty()) {
-            PhoneAuthOptions options = PhoneAuthOptions.newBuilder(auth)
-                    .setPhoneNumber(pNumber)
-                    .setTimeout(60L, TimeUnit.SECONDS)
-                    .setActivity(SimpleStart.this)
-                    .setCallbacks(mCallBacks)
-                    .build();
-            PhoneAuthProvider.verifyPhoneNumber(options);
-        } else
-        {
-            processOtp.setText("Please enter Country code and Phone Number");
-            processOtp.setTextColor(Color.WHITE);
-            processOtp.setVisibility(View.VISIBLE);
-        }
-        progressBar.setVisibility(View.VISIBLE);
-        fab.setAlpha(0f);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                progressBar.setVisibility(View.GONE);
-                fab.setAlpha(1f);
 
-            }
-        }, 1000);
-mCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-    @Override
-    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-        signIn(phoneAuthCredential);
-    }
 
-    @Override
-    public void onVerificationFailed(@NonNull FirebaseException e) {
-        processOtp.setText(e.getMessage());
-        processOtp.setTextColor(Color.RED);
-        processOtp.setVisibility(View.VISIBLE);
-    }
 
-    @Override
-    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-        super.onCodeSent(s, forceResendingToken);
-        processOtp.setText("OTP has been sent");
-        processOtp.setText(View.VISIBLE);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent otpIntent = new Intent(SimpleStart.this, ProjectPayer.class);
-                otpIntent.putExtra("auth", s);
-                startActivity(otpIntent);
-            }
-        }, 10000);
 
-    }
-};
-
-    }
 }
