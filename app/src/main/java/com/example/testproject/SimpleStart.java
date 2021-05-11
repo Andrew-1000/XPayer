@@ -26,6 +26,8 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
+import es.dmoral.toasty.Toasty;
+
 public class SimpleStart extends AppCompatActivity {
     private ProgressBar progressBar;
     private FloatingActionButton fab;
@@ -60,7 +62,7 @@ public class SimpleStart extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)  {
-
+                Toasty.info(SimpleStart.this, "Authorizing....", Toasty.LENGTH_LONG).show();
                 progressBar.setVisibility(View.VISIBLE);
                 fab.setAlpha(0f);
                 new Handler().postDelayed(new Runnable() {
@@ -69,8 +71,9 @@ public class SimpleStart extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                         fab.setAlpha(1f);
 
+
                     }
-                }, 1000);
+                }, 10000);
 
                 String country_code = countryCode.getText().toString().trim();
                 String phone_number = phoneNumber.getText().toString().trim();
@@ -85,7 +88,8 @@ public class SimpleStart extends AppCompatActivity {
                     PhoneAuthProvider.verifyPhoneNumber(options);
                 } else
                 {
-                    processOtp.setText("Please enter Country code and Phone Number");
+                    processOtp.setText(R.string.coder);
+                    Toasty.error(getApplicationContext(), "Please Provide Country Code and Phone Number", Toasty.LENGTH_LONG).show();
                     processOtp.setTextColor(Color.WHITE);
                     processOtp.setVisibility(View.VISIBLE);
                 }
@@ -101,14 +105,15 @@ public class SimpleStart extends AppCompatActivity {
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
                 processOtp.setText(e.getMessage());
-                processOtp.setTextColor(Color.RED);
+                processOtp.setTextColor(Color.WHITE);
                 processOtp.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(s, forceResendingToken);
-                processOtp.setText("OTP has been Sent");
+                processOtp.setText(R.string.sente);
+                Toasty.success(SimpleStart.this, "Code has been sent!", Toasty.LENGTH_LONG).show();
                 processOtp.setVisibility(View.VISIBLE);
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -118,7 +123,7 @@ public class SimpleStart extends AppCompatActivity {
                             otpIntent.putExtra("auth", s);
                             startActivity(otpIntent);
                         }
-                    }, 3000);
+                    }, 10000);
 
             }
         };
@@ -145,6 +150,7 @@ public class SimpleStart extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                  if (task.isSuccessful()) {
                      sendtoMain();
+                     Toasty.success(SimpleStart.this, "Logged in Successfully!", Toasty.LENGTH_LONG).show();
                  } else {
                      processOtp.setText(task.getException().getMessage());
                      processOtp.setTextColor(Color.WHITE);

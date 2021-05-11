@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
+import es.dmoral.toasty.Toasty;
+
 public class Verification extends AppCompatActivity {
 
     private Button continues;
@@ -48,15 +50,13 @@ public class Verification extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     sendtoMain();
-                } else {
-                    Toast.makeText(Verification.this, "Verification Failed", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
     }
 
     private void sendtoMain() {
-
         startActivity(new Intent(Verification.this, ProjectPayer.class ));
         finish();
     }
@@ -76,6 +76,8 @@ public class Verification extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUer = firebaseAuth.getCurrentUser();
         if (currentUer !=null) {
+            Toasty.success(Verification.this, "Logged in Successfully", Toasty.LENGTH_LONG).show();
+
             sendtoMain();
         }
     }

@@ -15,6 +15,8 @@ import com.example.testproject.utils.Tools;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import es.dmoral.toasty.Toasty;
+
 
 public class ProjectPayer extends AppCompatActivity {
 
@@ -37,9 +39,11 @@ public class ProjectPayer extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        Toasty.info(getApplicationContext(), "Welcome Back!", Toasty.LENGTH_LONG).show();
         if (currentUser == null) {
             startActivity(new Intent(this, SimpleStart.class));
             finish();
+        } else {
         }
     }
 
