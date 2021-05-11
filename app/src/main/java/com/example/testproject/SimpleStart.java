@@ -35,7 +35,7 @@ public class SimpleStart extends AppCompatActivity {
 
     private TextView processOtp;
 
-    private EditText countryCode, phoneNumber;
+    private EditText phoneNumber;
     private FirebaseAuth auth;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks;
 
@@ -47,7 +47,6 @@ public class SimpleStart extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         fab = findViewById(R.id.fab);
         processOtp = findViewById(R.id.processOtp);
-        countryCode = findViewById(R.id.countryCode);
         phoneNumber = findViewById(R.id.phoneNumber);
         auth = FirebaseAuth.getInstance();
 
@@ -75,10 +74,8 @@ public class SimpleStart extends AppCompatActivity {
                     }
                 }, 10000);
 
-                String country_code = countryCode.getText().toString().trim();
-                String phone_number = phoneNumber.getText().toString().trim();
-                String pNumber = "+" + country_code + "" + phone_number;
-                if (!country_code.isEmpty() || !phone_number.isEmpty()) {
+                String pNumber = phoneNumber.getText().toString().trim();
+                if (!pNumber.isEmpty()) {
                     PhoneAuthOptions options = PhoneAuthOptions.newBuilder(auth)
                             .setPhoneNumber(pNumber)
                             .setTimeout(60L , TimeUnit.SECONDS)

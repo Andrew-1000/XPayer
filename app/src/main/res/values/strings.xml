@@ -8,7 +8,7 @@
     <string name="username">USERNAME</string>
     <string name="verify_your_number">Verify Your Number</string>
     <string name="please_enter_your_mobile_number_to_receive_a_verification_code_carrier_rates_may_apply">Please enter your mobile number to receive a verification code. Carrier rates may apply</string>
-    <string name="phone_number">7XX-XXX-XXX</string>
+    <string name="phone_number">Phone Number</string>
     <string name="_7_000_000_000">700 000 000</string>
     <string name="continue_to_code">Continue</string>
     <string name="no_other_time">NO, OTHER TIME</string>
