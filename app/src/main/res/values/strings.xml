@@ -1,15 +1,14 @@
 <resources>
-    <string name="app_name">TestProject</string>
+    <string name="app_name">xPayer</string>
     <string name="sign_in">SIGN IN</string>
     <string name="password">PASSWORD</string>
     <string name="sign_up">  Sign Up</string>
     <string name="new_user">New user?</string>
     <string name="s_i_g_n_i_n">SIGN IN</string>
     <string name="username">USERNAME</string>
-    <string name="todo">TODO</string>
     <string name="verify_your_number">Verify Your Number</string>
     <string name="please_enter_your_mobile_number_to_receive_a_verification_code_carrier_rates_may_apply">Please enter your mobile number to receive a verification code. Carrier rates may apply</string>
-    <string name="phone_number">Phone Number</string>
+    <string name="phone_number">7XX-XXX-XXX</string>
     <string name="_7_000_000_000">700 000 000</string>
     <string name="continue_to_code">Continue</string>
     <string name="no_other_time">NO, OTHER TIME</string>
@@ -27,4 +26,9 @@
     <string name="app_version">1.0</string>
     <string name="version_unknown">Unknown Version</string>
     <string name="logout">Logout</string>
+    <string name="xpayer">xPayer</string>
+    <string name="todo">TODO</string>
+    <string name="_254">254</string>
+    <string name="coder">Please enter Country code and Phone Number</string>
+    <string name="sente">Code has been sent</string>
 </resources>
