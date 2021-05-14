@@ -38,6 +38,7 @@ import androidx.core.widget.NestedScrollView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.testproject.ActivityWebView;
 import com.example.testproject.DeviceInfo;
@@ -49,6 +50,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 
 public class Tools {
 
@@ -127,7 +130,7 @@ public class Tools {
     public static void displayImageOriginal(Context ctx, ImageView img, @DrawableRes int drawable) {
         try {
             Glide.with(ctx).load(drawable)
-                    .crossFade()
+                    .transition(new DrawableTransitionOptions().crossFade())
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(img);
         } catch (Exception e) {
@@ -136,7 +139,12 @@ public class Tools {
 
     public static void displayImageRound(final Context ctx, final ImageView img, @DrawableRes int drawable) {
         try {
-            Glide.with(ctx).load(drawable).asBitmap().centerCrop().into(new BitmapImageViewTarget(img) {
+            Glide
+                    .with(ctx)
+                    .asBitmap()
+                    .load(drawable)
+                    .centerCrop()
+                    .into(new BitmapImageViewTarget(img) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable = RoundedBitmapDrawableFactory.create(ctx.getResources(), resource);
@@ -151,7 +159,7 @@ public class Tools {
     public static void displayImageOriginal(Context ctx, ImageView img, String url) {
         try {
             Glide.with(ctx).load(url)
-                    .crossFade()
+                    .transition(new DrawableTransitionOptions().crossFade())
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(img);
         } catch (Exception e) {
