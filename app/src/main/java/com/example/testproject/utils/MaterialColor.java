@@ -29,13 +29,14 @@ public class MaterialColor {
 
     public static int getColor(Context ctx, String str, int index) {
         int returnColor = Color.WHITE;
-        int arrayId = ctx.getResources().getIdentifier("mdcolor_random", "array", ctx.getPackageName());
+        int arrayId = ctx.getResources().getIdentifier("mdcolor_random",
+                "array", ctx.getPackageName());
 
         if (arrayId != 0) {
             TypedArray colors = ctx.getResources().obtainTypedArray(arrayId);
             int idx = index;
             while (idx >= colors.length()) {
-                idx = idx - 5;
+                idx = idx - 2;
             }
             while (idx < 0) {
                 idx = idx + 2;

@@ -8,7 +8,8 @@ public class NetworkCheck {
 
     public static boolean isConnect(Context context) {
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager connectivityManager = (ConnectivityManager)
+                    context.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 if (activeNetworkInfo.isConnected() || activeNetworkInfo.isConnectedOrConnecting()) {

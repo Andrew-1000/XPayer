@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="images">
+        <item>@drawable/kenyapower</item>
+        <item>@drawable/mkopa</item>
+
+    </integer-array>
+    <string-array name="names">
+        <item>Kenya Power</item>
+        <item>M-Kopa Solar</item>
+
+    </string-array>
+
+    <integer-array name="water_images">
+        <item>@drawable/nairobiwater</item>
+        <item>@drawable/mombasawater</item>
+        <item>@drawable/kakamegawater</item>
+        <item>@drawable/kiwasco</item>
+        <item>@drawable/nyeriwater</item>
+        <item>@drawable/limuruwater</item>
+
+    </integer-array>
+    <string-array name="water_names">
+        <item>Nairobi Water</item>
+        <item>Mombasa Water</item>
+        <item>Kakamega Water</item>
+        <item>Kisumu Water</item>
+        <item>Nyeri Water</item>
+        <item>Limuru Water</item>
+
+    </string-array>
+    <integer-array name="mobile_images">
+        <item>@drawable/safcom</item>
+        <item>@drawable/airtel</item>
+        <item>@drawable/telkom</item>
+        <item>@drawable/faiba</item>
+
+    </integer-array>
+    <string-array name="mobile_names">
+        <item>Safaricom</item>
+        <item>Airtel</item>
+        <item>Telkom</item>
+        <item>Faiba</item>
+
+    </string-array>
+    <integer-array name="landline_images">
+        <item>@drawable/telkom</item>
+        <item>@drawable/airtel</item>
+        <item>@drawable/safcom</item>
+
+    </integer-array>
+    <string-array name="landline_names">
+        <item>Telkom</item>
+        <item>Airtel</item>
+        <item>Safaricom</item>
+
+    </string-array>
+    <integer-array name="cabletv_images">
+        <item>@drawable/dstv</item>
+        <item>@drawable/starttimes</item>
+        <item>@drawable/gotv</item>
+        <item>@drawable/zuku</item>
+
+    </integer-array>
+    <string-array name="cabletv_names">
+        <item>DSTV</item>
+        <item>Startimes</item>
+        <item>GoTV</item>
+        <item>Zuku</item>
+
+    </string-array>
+    <integer-array name="internet_images">
+        <item>@drawable/safhome</item>
+        <item>@drawable/zuku</item>
+        <item>@drawable/faiba</item>
+        <item>@drawable/airtel</item>
+        <item>@drawable/telkom</item>
+
+
+    </integer-array>
+    <string-array name="internet_names">
+        <item>Home Fibre</item>
+        <item>Zuku</item>
+        <item>Faib</item>
+        <item>Airtel</item>
+        <item>Telkom</item>
+
+    </string-array>
+
+
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.balysv.materialripple.MaterialRippleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    style="@style/RippleStyleBlack"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:id="@+id/lyt_parent"
+        android:minHeight="@dimen/actionBarSize"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/kenyapower"
+            android:layout_marginTop="10dp"
+            android:id="@+id/image"
+            />
+        <View
+            android:layout_width="5dp"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/spacing_middle"
+                android:paddingTop="@dimen/spacing_middle">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_middle"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:text="@string/name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/grey_40" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_middle"
+                    android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:maxLines="2"
+                    android:text="@string/details_goes_here"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/grey_90" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_10" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</com.balysv.materialripple.MaterialRippleLayout>

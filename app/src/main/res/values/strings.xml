@@ -31,4 +31,7 @@
     <string name="_254">254</string>
     <string name="coder">Please enter Country code and Phone Number</string>
     <string name="sente">Code has been sent</string>
+    <string name="details_goes_here">Details goes here</string>
+    <string name="name">Name</string>
+    <string name="buy_airtime">BUY AIRTIME</string>
 </resources>

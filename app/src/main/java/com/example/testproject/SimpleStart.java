@@ -126,6 +126,7 @@ public class SimpleStart extends AppCompatActivity {
 
         Intent mainIntent = new Intent(SimpleStart.this, ProjectPayer.class);
         startActivity(mainIntent);
+        Toasty.info(getApplicationContext(), "Welcome Back!", Toasty.LENGTH_LONG).show();
         finish();
     }
     private void signIn(PhoneAuthCredential credential) {
@@ -140,9 +141,5 @@ public class SimpleStart extends AppCompatActivity {
              }
         });
     }
-
-
-
-
 
 }

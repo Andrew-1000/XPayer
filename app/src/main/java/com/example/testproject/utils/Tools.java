@@ -50,7 +50,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 
 public class Tools {
@@ -329,7 +328,8 @@ public class Tools {
     }
 
     public static String insertPeriodically(String text, String insert, int period) {
-        StringBuilder builder = new StringBuilder(text.length() + insert.length() * (text.length() / period) + 1);
+        StringBuilder builder = new StringBuilder(text.length() + insert.length() *
+                (text.length() / period) + 1);
         int index = 0;
         String prefix = "";
         while (index < text.length()) {

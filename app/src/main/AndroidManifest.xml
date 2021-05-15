@@ -8,9 +8,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.TestProject">
-        <activity android:name=".ActivityWebView">
-
-        </activity>
+        <activity android:name=".UtilityList"></activity>
+        <activity android:name=".ActivityWebView"></activity>
+        <activity android:name=".WaterList"></activity>
+        <activity android:name=".MobileList"></activity>
+        <activity android:name=".PostPayList"></activity>
+        <activity android:name=".CableTVList"></activity>
+        <activity android:name=".InternetList"></activity>
         <activity android:name=".ProjectPayer" />
         <activity android:name=".Verification" />
         <activity android:name=".SimpleStart">

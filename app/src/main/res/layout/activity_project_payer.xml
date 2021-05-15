@@ -76,6 +76,7 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:gravity="center"
+                            android:id="@+id/power"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large"
                             android:focusable="true"
@@ -124,6 +125,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:clickable="true"
+                            android:id="@+id/water"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large"
@@ -173,6 +175,7 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:gravity="center"
+                            android:id="@+id/mobile"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large">
 
@@ -188,7 +191,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="MOBILE"
+                                android:text="@string/buy_airtime"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:textColor="@color/grey_90"
@@ -226,6 +229,7 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:gravity="center"
+                            android:id="@+id/landline"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large"
                             android:focusable="true">
@@ -242,7 +246,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="LANDLINE"
+                                android:text="POSTPAY"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:textColor="@color/grey_90"
@@ -273,6 +277,7 @@
                             android:layout_height="wrap_content"
                             android:clickable="true"
                             android:gravity="center"
+                            android:id="@+id/cabletv"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large">
 
@@ -321,6 +326,7 @@
                             android:gravity="center"
                             android:orientation="vertical"
                             android:padding="@dimen/spacing_large"
+                            android:id="@+id/internet"
                             android:focusable="true">
 
                             <ImageView
