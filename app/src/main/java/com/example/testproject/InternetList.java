@@ -133,7 +133,7 @@ public class InternetList extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Internet");
+        getSupportActionBar().setTitle("Internet ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Tools.setSystemBarColor(this);
 
